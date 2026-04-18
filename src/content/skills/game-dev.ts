@@ -1,0 +1,41 @@
+import type { Skill } from '@/types';
+
+export const gameDevSkills: Skill[] = [
+  {
+    id: 'unity',
+    name: 'Unity',
+    category: 'game',
+    level: 'advanced',
+    proficiency: 85,
+    icon: 'unity',
+    color: '#000000',
+    relatedProjects: ['game-001', 'game-002'],
+    metrics: { yearsExperience: 3, projectCount: 6, lastUsed: '2024-11-01' },
+    order: 1,
+  },
+  {
+    id: 'csharp',
+    name: 'C#',
+    category: 'game',
+    level: 'advanced',
+    proficiency: 82,
+    icon: 'csharp',
+    color: '#239120',
+    relatedProjects: ['game-001', 'game-002'],
+    metrics: { yearsExperience: 3, projectCount: 6, lastUsed: '2024-11-01' },
+    order: 2,
+  },
+  {
+    id: 'godot',
+    name: 'Godot',
+    category: 'game',
+    level: 'intermediate',
+    proficiency: 70,
+    icon: 'godot',
+    color: '#478CBF',
+    relatedProjects: ['game-003'],
+    metrics: { yearsExperience: 1, projectCount: 2, lastUsed: '2024-09-15' },
+    learning: true,
+    order: 3,
+  },
+];
