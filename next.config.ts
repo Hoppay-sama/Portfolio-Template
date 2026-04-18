@@ -9,6 +9,9 @@ const nextConfig: NextConfig = {
   // React configuration
   reactStrictMode: true,
 
+  // Disable dev indicators
+  devIndicators: false,
+
   // Experimental features - Turbopack compatible
   experimental: {
     optimizePackageImports: [

@@ -1,64 +1,168 @@
-# Nexus Portfolio
+# Nexus Portfolio Template
 
-A cutting-edge full-stack and game developer portfolio built with Next.js 15, Three.js, GSAP, and modern web technologies.
+A cutting-edge portfolio template for full-stack developers, game developers, and creative technologists. Built with Next.js 15, Three.js, GSAP, and Tailwind CSS.
 
 ## 🚀 Features
 
-- **Hero Section** - Animated particle system with GSAP timeline animations
-- **About Section** - Interactive skill visualization and professional timeline
-- **Projects Showcase** - Full-stack projects with live demos and metrics
-- **Game Development** - Playable WebGL games embedded in the portfolio
-- **Contact Form** - Validated form with email integration
-- **Command Palette** - Power user navigation with CMD+K
-- **Easter Eggs** - Konami code and hidden features
-- **Performance Optimized** - 95+ Lighthouse score target
+- **Hero Section** - Animated entrance with GSAP timeline
+- **About Section** - Interactive skill visualization
+- **Projects Showcase** - Project cards with metrics and links
+- **Game Development** - Showcase playable games
+- **Contact Form** - Validated form with API route
+- **Command Palette** - CMD+K navigation
+- **Easter Eggs** - Konami code activation
+- **Dark Mode** - Sleek dark theme by default
+- **Performance Optimized** - Optimized bundle with Turbopack
 
 ## 🛠️ Tech Stack
 
 - **Framework:** Next.js 15 (App Router)
 - **Language:** TypeScript
 - **Styling:** Tailwind CSS
-- **Animations:** GSAP, Framer Motion
+- **Animations:** GSAP, React Hook Form
 - **3D/WebGL:** Three.js, React Three Fiber
 - **State:** Zustand
-- **Forms:** React Hook Form, Zod
-- **Email:** Resend
+- **Validation:** Zod
 
-## 📦 Installation
+## 📦 Quick Start
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/nexus-portfolio.git
+git clone https://github.com/yourusername/portfolio.git
 
 # Navigate to project
-cd nexus-portfolio
+cd portfolio
 
 # Install dependencies
 pnpm install
 
-# Copy environment variables
+# Copy environment template
 cp .env.example .env.local
 
 # Start development server
 pnpm dev
 ```
 
-## 🔧 Environment Variables
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-Create a `.env.local` file with the following variables:
+## 🎯 Customization
 
-```env
-# Email Service
-RESEND_API_KEY=your_resend_api_key
-CONTACT_EMAIL=your@email.com
+### 1. Update Personal Info
 
-# Analytics (Optional)
-NEXT_PUBLIC_GA_ID=your_google_analytics_id
+Edit `src/content/personal/bio.ts`:
 
-# Social Links
-NEXT_PUBLIC_GITHUB_URL=https://github.com/yourusername
-NEXT_PUBLIC_LINKEDIN_URL=https://linkedin.com/in/yourusername
-NEXT_PUBLIC_TWITTER_URL=https://twitter.com/yourusername
+```typescript
+export const bio = {
+  name: 'Your Name',
+  title: 'Your Title',
+  tagline: 'One-liner about you',
+  shortBio: 'Brief bio paragraph',
+  longBio: `Multi-paragraph bio...
+  
+Continue here.`,
+  location: 'City, Country',
+  email: 'your@email.com',
+  available: true,
+  stats: [
+    { label: 'Years Experience', value: 5 },
+    { label: 'Projects Completed', value: 30 },
+  ],
+  resume: { downloadUrl: '/resume.pdf' },
+};
+```
+
+### 2. Update Social Links
+
+Edit `src/content/personal/social.ts`:
+
+```typescript
+export const socialLinks: SocialLink[] = [
+  { platform: 'GitHub', url: 'https://github.com/yourusername', icon: 'github', username: '@yourusername' },
+  { platform: 'LinkedIn', url: 'https://linkedin.com/in/yourusername', icon: 'linkedin', username: 'Your Name' },
+  // Add more...
+];
+```
+
+### 3. Add Projects
+
+Edit or create files in `src/content/projects/`:
+
+```typescript
+export const myProject: Project = {
+  id: 'proj-001',
+  slug: 'my-project',
+  title: 'Project Title',
+  description: 'Brief description',
+  type: 'fullstack',
+  status: 'completed',
+  technologies: ['Next.js', 'TypeScript'],
+  featured: true,
+  order: 1,
+  liveUrl: 'https://yourproject.com',
+  githubUrl: 'https://github.com/yourusername/project',
+  images: [{ src: '/placeholder.jpg', alt: 'Screenshot', width: 1920, height: 1080 }],
+  startDate: '2024-01-01',
+  tags: ['web', 'react'],
+  createdAt: '2024-01-01T00:00:00Z',
+  updatedAt: '2024-01-01T00:00:00Z',
+};
+```
+
+### 4. Add Skills
+
+Edit `src/content/skills/frontend.ts` and other skill files:
+
+```typescript
+export const frontendSkills: Skill[] = [
+  { id: 'react', name: 'React', category: 'frontend', level: 'expert', proficiency: 95, icon: 'react', color: '#61DAFB', relatedProjects: [], order: 1 },
+  // Add more...
+];
+```
+
+### 5. Add Games
+
+Edit or create files in `src/content/games/`:
+
+```typescript
+export const myGame: Game = {
+  id: 'game-001',
+  slug: 'my-game',
+  title: 'Game Title',
+  description: 'What players do',
+  genre: 'puzzle',
+  engine: 'unity',
+  buildUrl: '/games/my-game/index.html',
+  thumbnail: '/placeholder.jpg',
+  screenshots: [],
+  controls: { keyboard: { Space: 'Jump' }, touch: true },
+  defaultSettings: { quality: 'medium', soundEnabled: true, musicEnabled: true, fullscreen: false },
+  technologies: ['Unity', 'C#'],
+  role: 'Solo Developer',
+  featured: true,
+  createdAt: '2024-01-01T00:00:00Z',
+};
+```
+
+### 6. Update Site Config
+
+Edit `src/config/site.ts`:
+
+```typescript
+export const siteConfig = {
+  name: 'Your Name',
+  description: 'Your portfolio description',
+  url: 'https://yourdomain.com',
+  ogImage: 'https://yourdomain.com/og-image.jpg',
+  creator: 'Your Name',
+  email: 'your@email.com',
+  links: {
+    github: 'https://github.com/yourusername',
+    linkedin: 'https://linkedin.com/in/yourusername',
+    twitter: 'https://twitter.com/yourusername',
+  },
+  keywords: ['developer', 'portfolio', 'react', 'typescript'],
+  // Navigation is defined in a separate config
+};
 ```
 
 ## 📁 Project Structure
@@ -66,104 +170,62 @@ NEXT_PUBLIC_TWITTER_URL=https://twitter.com/yourusername
 ```
 src/
 ├── app/                    # Next.js App Router
+│   ├── (main)/            # Route group pages
 │   ├── api/               # API routes
 │   ├── layout.tsx         # Root layout
 │   ├── page.tsx           # Home page
-│   └── globals.css        # Global styles
+│   └── globals.css        # Tailwind + CSS variables
 ├── components/
-│   ├── sections/          # Page sections (Hero, About, etc.)
-│   ├── ui/               # Reusable UI components
-│   ├── three/            # 3D/WebGL components
-│   └── animations/       # Animation components
+│   ├── animations/       # FadeIn, ScrollReveal
+│   ├── layout/           # Header, Footer
+│   ├── sections/         # Hero, About, Projects, Games, Contact
+│   ├── three/            # Scene, SkillConstellation, Particles
+│   └── ui/              # Button, Card, Badge, Input, CommandPalette
+├── content/              # Content data files
+│   ├── games/
+│   ├── personal/
+│   ├── projects/
+│   └── skills/
 ├── lib/
-│   ├── utils/            # Utility functions
-│   ├── hooks/            # Custom React hooks
+│   ├── hooks/            # useScrollAnimation, useKonamiCode
 │   ├── stores/           # Zustand stores
-│   └── constants/        # App constants
-├── content/              # Static content data
-├── types/                # TypeScript types
-└── config/               # App configuration
+│   └── utils/            # cn, device, format
+├── config/               # site.ts
+└── types/               # TypeScript types
 ```
 
-## 🎮 Development
+## 🧑‍💻 Development Scripts
 
 ```bash
-# Start development server
-pnpm dev
-
-# Build for production
-pnpm build
-
-# Start production server
-pnpm start
-
-# Run linting
-pnpm lint
-
-# Run type checking
-pnpm type-check
-
-# Analyze bundle size
-pnpm analyze
+pnpm dev          # Start development server
+pnpm build        # Build for production
+pnpm start        # Start production server
+pnpm lint         # Run ESLint
+pnpm type-check  # TypeScript check
+pnpm analyze     # Bundle analysis
 ```
 
-## 📊 Performance Targets
+## 🧪 Testing
 
-- **Lighthouse Score:** 95+ across all metrics
-- **LCP:** < 2.5s
-- **FID:** < 100ms
-- **CLS:** < 0.1
-- **Bundle Size:** < 200KB initial JS
-- **Animation FPS:** 60fps on mid-tier devices
-
-## 🎨 Customization
-
-### Adding Projects
-
-Edit `src/content/projects/` to add your projects:
-
-```typescript
-// src/content/projects/my-project.ts
-import { Project } from '@/types';
-
-export const myProject: Project = {
-  id: 'proj-001',
-  slug: 'my-project',
-  title: 'My Project',
-  description: 'Project description...',
-  // ... other fields
-};
+```bash
+npx vitest run       # Unit tests
+pnpm test:e2e       # E2E tests (requires dev server)
 ```
 
-### Adding Games
+## 📄 Environment Variables
 
-Edit `src/content/games/` to add your games:
+Create `.env.local`:
 
-```typescript
-// src/content/games/my-game.ts
-import { Game } from '@/types';
-
-export const myGame: Game = {
-  id: 'game-001',
-  slug: 'my-game',
-  title: 'My Game',
-  buildUrl: '/games/my-game/index.html',
-  // ... other fields
-};
+```env
+# Contact form (required for production)
+RESEND_API_KEY=re_xxxxxxxx
+CONTACT_EMAIL=your@email.com
 ```
 
-## 📝 License
+## 🔒 Legal
 
-MIT License - feel free to use this for your own portfolio!
-
-## 🙏 Acknowledgments
-
-- [Next.js](https://nextjs.org/)
-- [Three.js](https://threejs.org/)
-- [GSAP](https://greensock.com/gsap/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [Lucide Icons](https://lucide.dev/)
+MIT License - use this模板 for your own portfolio!
 
 ---
 
-Built with ❤️ by [Your Name](https://yourportfolio.com)
+Replace all placeholder values (Your Name, yourusername, your@email.com, etc.) with your actual information before deploying.
